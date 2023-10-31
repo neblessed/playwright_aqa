@@ -11,6 +11,11 @@ export class GooglePage {
         this.searchBtn = page.getByLabel('Поиск в Google')
     }
 
+    async open(): Promise<GooglePage> {
+        await this.page.goto('https://www.google.com/')
+        return this
+    }
+
     async fillSearchField(text: string): Promise<GooglePage> {
         await this.searchField.fill(text)
         return this
